@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'users',
     'machines',
-    'maintenance'
+    'maintenance',
+    'corsheaders'
 ]
 
 REST_FRAMEWORK = {
@@ -84,6 +85,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'cmms.urls'
@@ -163,3 +166,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.CustomUser'
+
+CORS_ALLOW_ALL_ORIGINS = True
